@@ -28,7 +28,7 @@ def isPermPalindrome (word):
 	oddCount = 0
 
 	for key in characters:
-		# if character is even
+		# if character is odd
 		if characters[key] % 2 != 0:
 			oddCount+=1
 	
