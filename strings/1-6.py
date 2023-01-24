@@ -25,5 +25,5 @@ def stringCompress (word):
 	print( newString if len(newString) < len(word) else word  )
 
 
-stringCompress("heloo world this has been compressed! ia Pience of TEXT yeas!") 
+stringCompress("aaaaabbbbbbbbbbbbbcccccccccccccccccccccc") 
 
