@@ -31,6 +31,17 @@ def isRotation (str1, str2):
 	return False
 
 """
+Main approach
+- There is some point where we can split s1 and s2 into x and y
+s1 = xy
+s2 = yx
+s3 = xyxy
+s2 is a substring of s3
+therefore a rotation of s1
 """
 
-print(isRotation("waterbottle", rotate("waterbottle", 1000)))
+def isRotation2 (str1, str2):
+	s3 = str1*2
+	return str2 in s3
+
+print(isRotation2("waterbottle", rotate("waterbottle", 1000)))
