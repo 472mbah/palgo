@@ -36,6 +36,28 @@ def removeDupsStandard (sequence):
 		pointer1 = pointer1.next
 		pointer2 = None if pointer1==None else pointer1.next
 
+"""
+The following method uses hash table, giving us a run time of O(n) but space complexity of O(n) too
+"""
+
+def removeDupsBuffer (sequence):
+	
+	buffer = {}
+	pointer = sequence
+	
+	while pointer.next != None:
+		if pointer.data in buffer:
+			if pointer.next == None:
+				pointer.data = None
+				pointer = pointer.next
+			else:
+				pointer.data = pointer.next.data
+				pointer.next = pointer.next.next
+		else:
+			buffer[pointer.data] = None
+			pointer = pointer.next
+		
+
 sequence = Node(1)
 sequence.addNode(2)
 sequence.addNode(2)
@@ -45,5 +67,5 @@ sequence.addNode(2)
 sequence.addNode(4)
 sequence.printNodes()
 print("----------------")
-removeDups(sequence) 	
+removeDupsBuffer(sequence) 	
 sequence.printNodes()	
