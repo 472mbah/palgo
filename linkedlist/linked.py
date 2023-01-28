@@ -1,3 +1,5 @@
+import random
+
 class Node:
 	
 	def __init__ (self, data = None, next_ = None):
@@ -54,18 +56,9 @@ class NodeWrapper:
 	def removeOnValue (self, value):
 		self.first.removeOnValue(value)
 
-#first = NodeWrapper("hello")
-#first.addNode("world")
-#first.addNode("how")
-#first.addNode("is")
-#first.addNode("it")
-#first.addNode("hello")
-#first.addNode("going")
-#first.addNode("this")
-#first.addNode("is")
-#first.addNode("funny!")
-#first.printNodes()
-#print("---------------------")
-#first.removeOnValue("hello")
-#first.removeOnValue("is")
-#first.printNodes()
+def createRandomSet (size=10, min_=0, max_=9):
+	parent = Node(random.randint(min_, max_))
+	for k in range(size-1):
+		parent.addNode( random.randint( min_, max_  ) )	
+	
+	return parent

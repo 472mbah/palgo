@@ -1,4 +1,4 @@
-from linked import Node 
+from linked import Node, createRandomSet 
 
 """
 Approach: for each data item, check nodes in front to see if data is repeated
@@ -56,16 +56,10 @@ def removeDupsBuffer (sequence):
 		else:
 			buffer[pointer.data] = None
 			pointer = pointer.next
-		
+	
+	if pointer.data in buffer:
+		pointer.data = None	
 
-sequence = Node(1)
-sequence.addNode(2)
-sequence.addNode(2)
-sequence.addNode(2)
-sequence.addNode(3)
-sequence.addNode(2)
-sequence.addNode(4)
-sequence.printNodes()
-print("----------------")
+sequence = createRandomSet(800)
 removeDupsBuffer(sequence) 	
 sequence.printNodes()	
