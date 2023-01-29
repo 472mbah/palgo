@@ -1,5 +1,25 @@
 from linked import createRandomSet
 
+def findKthRecursive (sequence, k, global_={'offset':None}):
+	if sequence.next != None:
+		value = findKthRecursive(sequence.next, k, global_)
+		if value == None:
+			if global_['offset']+1 == k:
+				return sequence.data
+			else:	
+				global_['offset']+=1
+				return None
+		else:
+			return value
+
+	elif sequence.next == None:
+		if k == 1:
+			return sequence.data
+		else:
+			global_['offset'] = 1
+			return None		
+
+
 def findKthToLast (sequence, k):
 	if k <= 0:
 		k = 1
@@ -27,4 +47,5 @@ def findKthToLast (sequence, k):
 
 sequence = createRandomSet()
 sequence.printNodes()
-print(findKthToLast(sequence, 4))
+#print(findKthToLast(sequence, 4))
+print(findKthRecursive(sequence, 3))

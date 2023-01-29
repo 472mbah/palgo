@@ -16,11 +16,13 @@ class Node:
 			if returnNode:
 				return self.next
 	
-	def printNodes (self, showIndex=True, index=0):
+	def printNodes (self, showIndex=True, index=0, close=True):
 		if self.data != None:
 			print(f"{str(index+1)+' - ' if showIndex else ''}{self.data}")
 			if self.next != None:
-				self.next.printNodes(showIndex, index+1)
+				self.next.printNodes(showIndex, index+1, close)
+			elif close:
+				print("-------------------")
 	
 	def removeOnValue (self, value):
 		if self.data == value:
@@ -49,8 +51,8 @@ class NodeWrapper:
 		else:
 			self.last = self.last.addNode(data, True)
 		
-	def printNodes (self, showIndex=True, index=0):
-		self.first.printNodes(showIndex, index)
+	def printNodes (self, showIndex=True, index=0, close=True):
+		self.first.printNodes(showIndex, index, close)
 
 
 	def removeOnValue (self, value):
@@ -60,5 +62,5 @@ def createRandomSet (size=10, min_=0, max_=9):
 	parent = Node(random.randint(min_, max_))
 	for k in range(size-1):
 		parent.addNode( random.randint( min_, max_  ) )	
-	
+		
 	return parent
