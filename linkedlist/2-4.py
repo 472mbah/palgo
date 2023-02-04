@@ -1,6 +1,7 @@
 from linked import produceSequenceFromArray
 
-def partition ( sequence, x, pivotParent=None, previousNode=None, startNode=None):
+# Storing reference of pivot helps in cases where pivot is the parent node of the linked list 
+def partition ( sequence, x, pivotParent=None, pivot=None, previousNode=None, startNode=None):
 	
 	if sequence == None:
 		return
@@ -10,6 +11,8 @@ def partition ( sequence, x, pivotParent=None, previousNode=None, startNode=None
 	
 	if startNode == None:
 		startNode = sequence
+	
+	print(pivotParent)	
 
 	if pivotParent==None:
 	
@@ -24,8 +27,9 @@ def partition ( sequence, x, pivotParent=None, previousNode=None, startNode=None
 			else:
 				pivotParent = sequence
 	
-		partition(sequence.next, x, pivotParent, sequence, startNode)
-	
+		partition(startNode, x, pivotParent, sequence, startNode)
+		
+	"""	
 	else:
 		expectedNext = sequence.next
 		if sequence.data < x:
@@ -35,6 +39,7 @@ def partition ( sequence, x, pivotParent=None, previousNode=None, startNode=None
 		partition(expectedNext, x, pivotParent, pivotParent.next, startNode)
 	
 	pass
+	"""
 
 sequence = produceSequenceFromArray([1, 2, 6, 5, 7, 4, 2, 1]) 
 sequence.printNodes()
