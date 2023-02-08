@@ -8,7 +8,7 @@ class Node:
 	
 	def addNode (self, data, returnNode=False):
 		if self.data == None:
-			self.data = value
+			self.data = data
 		elif self.next != None:
 			self.next.addNode(data, returnNode)
 		else:
@@ -64,3 +64,9 @@ def createRandomSet (size=10, min_=0, max_=9):
 		parent.addNode( random.randint( min_, max_  ) )	
 		
 	return parent
+
+def produceSequenceFromArray (arr):
+	sequence = Node()
+	for value in arr:
+		sequence.addNode(value)
+	return sequence

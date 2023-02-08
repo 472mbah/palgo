@@ -4,6 +4,7 @@
 # have a separate function to loop from a number, via diving it by 10 every time and getting the appropiate digit
 import math
 from linked import Node, produceSequenceFromArray
+
 def getDigits (number):
 	digits = []
 	while number >= 1:

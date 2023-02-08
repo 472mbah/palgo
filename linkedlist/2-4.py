@@ -29,6 +29,9 @@ def partition ( sequence, x, pivotParent=None, pivot=None, previousNode=None, st
 	
 		partition(startNode, x, pivotParent, sequence, startNode)
 		
+	else:
+		partition(sequence.next, x, pivotParent, sequence, None)	
+
 	"""	
 	else:
 		expectedNext = sequence.next
